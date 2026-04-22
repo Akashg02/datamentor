@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataMentor — Technical Documentation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Sticky Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="logo">📊 DataMentor</span>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#charts">Charts</a></li>
+        <li><a href="#notebook">Notebook</a></li>
+        <li><a href="#evaluation">Evaluation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <h1 class="gradient-text">DataMentor</h1>
+    <p class="subtitle">In-browser CSV Intelligence &amp; Python Notebook Platform</p>
+    <div class="kpi-row">
+      <div class="kpi"><span class="kpi-num" data-target="10">0</span><span class="kpi-label">Chart Types</span></div>
+      <div class="kpi"><span class="kpi-num" data-target="14">0</span><span class="kpi-label">Notebook Cells</span></div>
+      <div class="kpi"><span class="kpi-num" data-target="100">0</span><span class="kpi-label">% In-Browser</span></div>
+      <div class="kpi"><span class="kpi-num" data-target="0">0</span><span class="kpi-label">Server Required</span></div>
+    </div>
+    <a href="../" class="cta-btn">Launch App →</a>
+  </section>
+
+  <!-- Overview -->
+  <section id="overview" class="section">
+    <h2>Scientific Basis</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>🧹 Deterministic Cleaning</h3>
+        <p>Header normalization, whitespace trimming, duplicate removal, and null detection — applied consistently on every upload.</p>
+      </div>
+      <div class="card">
+        <h3>📊 10 Universal Chart Types</h3>
+        <p>DistPlot, Pie, Violin, HeatMap, PairPlot, JointPlot, Bar, Histogram, Scatter, Line — each with dynamic column selectors and domain-aware analysis.</p>
+      </div>
+      <div class="card">
+        <h3>🐍 In-Browser Python</h3>
+        <p>Pyodide 0.25.0 runs pandas, numpy, matplotlib, and scipy directly in your browser — no server, no upload.</p>
+      </div>
+      <div class="card">
+        <h3>🔍 Domain-Aware Insights</h3>
+        <p>Knowledge base recognizes medical and financial columns by name and generates contextual statistical commentary.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section id="architecture" class="section">
+    <h2>Architecture</h2>
+    <div class="arch-grid" id="arch-modules">
+      <div class="arch-module" onclick="selectModule(this, 'CsvNotebookBuilder')">
+        <span class="arch-icon">🏗</span>
+        <span>CsvNotebookBuilder</span>
+      </div>
+      <div class="arch-module" onclick="selectModule(this, 'CsvVisualizations')">
+        <span class="arch-icon">📊</span>
+        <span>CsvVisualizations</span>
+      </div>
+      <div class="arch-module" onclick="selectModule(this, 'NotebookViewer')">
+        <span class="arch-icon">🐍</span>
+        <span>NotebookViewer</span>
+      </div>
+      <div class="arch-module" onclick="selectModule(this, 'Firebase')">
+        <span class="arch-icon">☁</span>
+        <span>Firebase Auth/DB</span>
+      </div>
+      <div class="arch-module" onclick="selectModule(this, 'Pyodide')">
+        <span class="arch-icon">⚙</span>
+        <span>Pyodide Hook</span>
+      </div>
+      <div class="arch-module" onclick="selectModule(this, 'Analysis')">
+        <span class="arch-icon">🔍</span>
+        <span>Analysis Engine</span>
+      </div>
+    </div>
+    <div id="module-detail" class="module-detail" style="display:none"></div>
+  </section>
+
+  <!-- Charts -->
+  <section id="charts" class="section">
+    <h2>10 Chart Types</h2>
+    <div class="steps" id="chart-steps">
+      <div class="step-nav">
+        <button class="step-btn active" onclick="showChart(0)">DistPlot</button>
+        <button class="step-btn" onclick="showChart(1)">Pie</button>
+        <button class="step-btn" onclick="showChart(2)">Violin</button>
+        <button class="step-btn" onclick="showChart(3)">HeatMap</button>
+        <button class="step-btn" onclick="showChart(4)">PairPlot</button>
+        <button class="step-btn" onclick="showChart(5)">JointPlot</button>
+        <button class="step-btn" onclick="showChart(6)">Bar</button>
+        <button class="step-btn" onclick="showChart(7)">Histogram</button>
+        <button class="step-btn" onclick="showChart(8)">Scatter</button>
+        <button class="step-btn" onclick="showChart(9)">Line</button>
+      </div>
+      <div class="step-content" id="chart-content"></div>
+    </div>
+  </section>
+
+  <!-- Evaluation -->
+  <section id="evaluation" class="section">
+    <h2>Evaluation</h2>
+    <canvas id="eval-chart" height="300"></canvas>
+  </section>
+
+  <!-- Notebook -->
+  <section id="notebook" class="section">
+    <h2>14-Cell Python Notebook</h2>
+    <ol class="notebook-list">
+      <li>Load CSV</li><li>Shape &amp; Info</li><li>Descriptive Stats</li>
+      <li>Missing Values</li><li>Duplicates</li><li>Correlation</li>
+      <li>Value Counts</li><li>Distribution Plot</li><li>Pie Chart</li>
+      <li>Violin Plot</li><li>Heat Map</li><li>Pair Plot</li>
+      <li>Joint Plot</li><li>Custom Code</li>
+    </ol>
+  </section>
+
+  <footer>
+    <p>DataMentor — Built with Next.js 14, React 19, Chart.js, Pyodide, Firebase</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
